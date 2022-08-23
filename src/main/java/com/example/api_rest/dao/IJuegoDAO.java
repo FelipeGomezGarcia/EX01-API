@@ -6,5 +6,5 @@ import com.example.api_rest.dto.Juego;
 
 public interface IJuegoDAO extends JpaRepository<Juego, Long>{
 
-	public Juego buscarXNombre(String nombre);
+	public Juego findByNombre(String nombre);
 }

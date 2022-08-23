@@ -35,7 +35,7 @@ public class GrupoServiceImpl implements IGrupoService{
 	@Override
 	public Grupo buscarXNombre(String nombre) {
 		// TODO Auto-generated method stub
-		return iGrupoDAO.buscarXNombre(nombre);
+		return iGrupoDAO.findByNombre(nombre);
 	}
 
 	@Override

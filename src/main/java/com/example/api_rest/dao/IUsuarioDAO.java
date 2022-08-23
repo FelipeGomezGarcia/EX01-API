@@ -6,5 +6,5 @@ import com.example.api_rest.dto.Usuario;
 
 public interface IUsuarioDAO extends JpaRepository<Usuario, Long>{
 
-	public Usuario buscarXUsername(String username);
+	public Usuario findByUsername(String username);
 }

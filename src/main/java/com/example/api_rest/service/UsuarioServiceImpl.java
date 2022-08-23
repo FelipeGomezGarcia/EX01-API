@@ -35,7 +35,7 @@ public class UsuarioServiceImpl implements IUsuarioService{
 	@Override
 	public Usuario buscarXUsername(String username) {
 		// TODO Auto-generated method stub
-		return iUsuarioDAO.buscarXUsername(username);
+		return iUsuarioDAO.findByUsername(username);
 	}
 
 	@Override

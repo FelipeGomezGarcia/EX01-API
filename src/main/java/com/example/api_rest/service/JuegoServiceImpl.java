@@ -35,7 +35,7 @@ public class JuegoServiceImpl implements IJuegoService{
 	@Override
 	public Juego buscarXNombre(String nombre) {
 		// TODO Auto-generated method stub
-		return iJuegoDAO.buscarXNombre(nombre);
+		return iJuegoDAO.findByNombre(nombre);
 	}
 
 	@Override
