@@ -13,4 +13,6 @@ public interface IUsuarioService {
 	public void eliminarUsuario(Long id);
 	
 	public Usuario buscarXUsername(String username);
+	
+	public Usuario usuarioXId(Long id);
 }

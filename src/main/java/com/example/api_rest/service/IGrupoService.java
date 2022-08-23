@@ -13,4 +13,6 @@ public interface IGrupoService {
 	public void eliminarGrupo(Long id);
 	
 	public Grupo buscarXNombre(String nombre);
+	
+	public Grupo grupoXId(Long id);
 }

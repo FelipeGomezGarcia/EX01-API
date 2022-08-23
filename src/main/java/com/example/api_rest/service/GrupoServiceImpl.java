@@ -38,4 +38,11 @@ public class GrupoServiceImpl implements IGrupoService{
 		return iGrupoDAO.buscarXNombre(nombre);
 	}
 
+	@Override
+	public Grupo grupoXId(Long id) {
+		// TODO Auto-generated method stub
+		return iGrupoDAO.findById(id).get();
+	}
+
+
 }

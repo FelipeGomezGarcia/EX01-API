@@ -11,4 +11,6 @@ public interface IPertenecerService {
 	public Pertenecer guardarPertenecer(Pertenecer pertenecer);
 	
 	public void eliminarPertenecer(Long id);
+	
+	public Pertenecer pertencerXId(Long id);
 }

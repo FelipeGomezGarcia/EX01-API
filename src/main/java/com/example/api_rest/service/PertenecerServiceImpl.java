@@ -32,4 +32,10 @@ public class PertenecerServiceImpl implements IPertenecerService{
 		iPertenecerDAO.deleteById(id);
 	}
 
+	@Override
+	public Pertenecer pertencerXId(Long id) {
+		// TODO Auto-generated method stub
+		return iPertenecerDAO.findById(id).get();
+	}
+
 }

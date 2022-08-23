@@ -37,5 +37,11 @@ public class UsuarioServiceImpl implements IUsuarioService{
 		// TODO Auto-generated method stub
 		return iUsuarioDAO.buscarXUsername(username);
 	}
+
+	@Override
+	public Usuario usuarioXId(Long id) {
+		// TODO Auto-generated method stub
+		return iUsuarioDAO.findById(id).get();
+	}
 	
 }

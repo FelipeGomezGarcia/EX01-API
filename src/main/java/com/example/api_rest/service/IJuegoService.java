@@ -13,4 +13,6 @@ public interface IJuegoService {
 	public void elimniarJuego(Long id);
 	
 	public Juego buscarXNombre(String nombre);
+	
+	public Juego juegoXId(Long id);
 }

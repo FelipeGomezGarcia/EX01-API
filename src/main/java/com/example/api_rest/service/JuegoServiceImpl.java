@@ -37,5 +37,11 @@ public class JuegoServiceImpl implements IJuegoService{
 		// TODO Auto-generated method stub
 		return iJuegoDAO.buscarXNombre(nombre);
 	}
+
+	@Override
+	public Juego juegoXId(Long id) {
+		// TODO Auto-generated method stub
+		return iJuegoDAO.findById(id).get();
+	}
 	
 }
