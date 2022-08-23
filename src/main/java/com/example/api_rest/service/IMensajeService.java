@@ -13,4 +13,6 @@ public interface IMensajeService {
 	public Mensaje guardarMensaje(Mensaje mensaje);
 	
 	public void eliminarMensaje(Long id);
+	
+	public List<Mensaje> mensajesXGrupo(Long id);
 }

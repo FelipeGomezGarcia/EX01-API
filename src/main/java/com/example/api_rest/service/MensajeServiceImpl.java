@@ -37,4 +37,10 @@ public class MensajeServiceImpl implements IMensajeService{
 		// TODO Auto-generated method stub
 		iMensajeDAO.deleteById(id);
 	}
+
+	@Override
+	public List<Mensaje> mensajesXGrupo(Long id) {
+		// TODO Auto-generated method stub
+		return iMensajeDAO.findByGrupo(id);
+	}
 }

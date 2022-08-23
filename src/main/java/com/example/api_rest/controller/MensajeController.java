@@ -50,4 +50,9 @@ public class MensajeController {
 	public void elimniarMensaje(@PathVariable(name="id")Long id) {
 		mensajeServiceImpl.eliminarMensaje(id);
 	}
+	
+	@GetMapping("/mensajes/grupoID/{id}")
+	public List<Mensaje> mensajesXGrupo (@PathVariable(name="id")Long id){
+		return mensajeServiceImpl.mensajesXGrupo(id);
+	}
 }
