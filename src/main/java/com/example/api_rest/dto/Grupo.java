@@ -1,13 +1,19 @@
 package com.example.api_rest.dto;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="grupos")
@@ -26,6 +32,10 @@ public class Grupo {
 	@ManyToOne
 	@JoinColumn(name="usuarioCreador")
 	private Usuario usuarioCreador;
+	
+	@OneToMany
+	@JoinColumn(name="id")
+	private List<Mensaje> mensajes;
 
 	/**
 	 * 
@@ -33,18 +43,40 @@ public class Grupo {
 	public Grupo() {
 	}
 
+
 	/**
 	 * @param id
 	 * @param nombre
 	 * @param juego
 	 * @param usuarioCreador
+	 * @param mensajes
 	 */
-	public Grupo(Long id, String nombre, Juego juego, Usuario usuarioCreador) {
+	public Grupo(Long id, String nombre, Juego juego, Usuario usuarioCreador, List<Mensaje> mensajes) {
 		this.id = id;
 		this.nombre = nombre;
 		this.juego = juego;
 		this.usuarioCreador = usuarioCreador;
+		this.mensajes = mensajes;
 	}
+
+
+	/**
+	 * @return the mensajes
+	 */
+	@JsonIgnore
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "mensajes")
+	public List<Mensaje> getMensajes() {
+		return mensajes;
+	}
+
+
+	/**
+	 * @param mensajes the mensajes to set
+	 */
+	public void setMensajes(List<Mensaje> mensajes) {
+		this.mensajes = mensajes;
+	}
+
 
 	/**
 	 * @return the id
@@ -102,11 +134,11 @@ public class Grupo {
 		this.usuarioCreador = usuarioCreador;
 	}
 
+
 	@Override
 	public String toString() {
 		return "Grupo [id=" + id + ", nombre=" + nombre + ", juego=" + juego + ", usuarioCreador=" + usuarioCreador
-				+ "]";
-	}
-	
+				+ ", mensajes=" + mensajes + "]";
+	}	
 	
 }

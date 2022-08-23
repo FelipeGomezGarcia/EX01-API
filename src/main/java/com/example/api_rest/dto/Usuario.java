@@ -36,6 +36,10 @@ public class Usuario {
 	@JoinColumn(name="id")
 	private List<Pertenecer> pertence;
 	
+	@OneToMany
+	@JoinColumn(name="id")
+	private List<Mensaje> mensajes;
+	
 	/**
 	 * 
 	 */
@@ -43,6 +47,7 @@ public class Usuario {
 		
 	}
 
+	
 	/**
 	 * @param id
 	 * @param username
@@ -50,15 +55,37 @@ public class Usuario {
 	 * @param role
 	 * @param grupos
 	 * @param pertence
+	 * @param mensajes
 	 */
-	public Usuario(Long id, String username, String pass, String role, List<Grupo> grupos, List<Pertenecer> pertence) {
+	public Usuario(Long id, String username, String pass, String role, List<Grupo> grupos, List<Pertenecer> pertence,
+			List<Mensaje> mensajes) {
 		this.id = id;
 		this.username = username;
 		this.pass = pass;
 		this.role = role;
 		this.grupos = grupos;
 		this.pertence = pertence;
+		this.mensajes = mensajes;
 	}
+
+
+	/**
+	 * @return the mensajes
+	 */
+	@JsonIgnore
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "mensajes")
+	public List<Mensaje> getMensajes() {
+		return mensajes;
+	}
+
+
+	/**
+	 * @param mensajes the mensajes to set
+	 */
+	public void setMensajes(List<Mensaje> mensajes) {
+		this.mensajes = mensajes;
+	}
+
 
 	/**
 	 * @return the id

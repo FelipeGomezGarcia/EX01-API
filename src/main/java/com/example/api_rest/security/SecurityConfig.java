@@ -21,7 +21,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
         .antMatchers(HttpMethod.GET,"/**").authenticated()
         .antMatchers(HttpMethod.POST,"/**").authenticated()
         .antMatchers(HttpMethod.PUT, "/**").authenticated()
-        .antMatchers(HttpMethod.DELETE,"/**").authenticated()
+        .antMatchers(HttpMethod.DELETE,"/**").hasRole("ADMIN")
         .anyRequest().authenticated()
         .and().formLogin().permitAll()
         .and().httpBasic();
