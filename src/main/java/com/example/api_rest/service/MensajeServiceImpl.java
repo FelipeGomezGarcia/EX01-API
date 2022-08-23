@@ -1,5 +1,6 @@
 package com.example.api_rest.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,9 @@ public class MensajeServiceImpl implements IMensajeService{
 	@Override
 	public Mensaje guardarMensaje(Mensaje mensaje) {
 		// TODO Auto-generated method stub
+		Long milisecond = System.currentTimeMillis();
+		Date fecha = new Date(milisecond);
+		mensaje.setFecha(fecha);
 		return iMensajeDAO.save(mensaje);
 	}
 
